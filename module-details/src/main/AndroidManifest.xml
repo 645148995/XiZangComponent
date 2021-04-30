@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ctvit.details">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+
+        >
+
+        <activity
+            android:name="com.ctvit.details.AgentWebActivity"
+            android:configChanges="orientation|keyboardHidden"></activity>
+    </application
+>
+
+</manifest>

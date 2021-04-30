@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+def config = rootProject.ext
+android {
+    compileSdkVersion config.android.compileSdkVersion
+    buildToolsVersion config.android.buildToolsVersion
+    defaultConfig {
+        minSdkVersion config.android.minSdkVersion
+        targetSdkVersion config.android.targetSdkVersion
+        versionCode config.android.versionCode
+        versionName config.android.versionName
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (isBuildModule.toBoolean()) {
+            } else {
+                resources {
+                    //正式版本时，排除debug文件夹下所有调试文件
+                    exclude 'src/debug/*'
+                }
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //公用的support相关库在base中依赖
+    api config.support["design"]
+    //androidX
+    api config.support["appcompat-v7"]
+    //公用资源在base中依赖
+
+
+    //核心基础库(由于这是例子, 所以这里采用远程依赖的方式, 可根据实际情况自行换成源码依赖，源码地址：https://github.com/goldze/MVVMHabit)
+    api project(':extras:mvvmhabit')
+//   api config.dependencies.MVVMHabit
+    //阿里路由框架
+    api config.dependencies["arouter-api"]
+
+
+    //多语言切换
+    api 'com.hjq:language:3.0'
+    //fastjson
+    api group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
+    //smart:refresh-layout 下拉刷新库https://github.com/scwang90/SmartRefreshLayout
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    api 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    //LiveEventBus代替eventbus https://github.com/JeremyLiao/LiveEventBus
+    api 'com.jeremyliao:live-event-bus-x:1.7.2'
+
+
+
+    //ctvit组件  暂时写在这里
+    api files('libs/CCTV_Analysis.jar')
+    api "com.ctvit.android:network:${config.dependencies.ctvit_network}"
+    api "com.ctvit.android:utils:${config.dependencies.ctvit_utils}"
+//    implementation "com.ctvit.android:websocket:${config.dependencies.ctvit_websocket}"
+    api "com.ctvit.android:encryptplay:${config.dependencies.ctvit_encryptplay}"
+    //防盗链
+    api "com.ctvit.android:qq:${config.dependencies.ctvit_qq}"
+    api "com.ctvit.android:wechat:${config.dependencies.ctvit_wechat}"
+    api "com.ctvit.android:sinaweibo:${config.dependencies.ctvit_sinaweibo}"
+    api "com.ctvit.android:usercenter:${config.dependencies.ctvit_usercenter}"
+    api "com.ctvit.android:utils:${config.dependencies.ctvit_utils}"
+//    implementation "com.sina.weibo.sdk:core:${config.dependencies.sina_weibo}:openDefaultRelease@aar"
+}

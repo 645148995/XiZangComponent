@@ -1,0 +1,15 @@
+
+include ':app'
+include ':library-base'
+
+include ':module-details'
+include ':library-cardgroups'
+include ':extras:mvvmhabit'
+include ':extras:fragmentation_core'
+include ':extras:fragmentation'
+include ':module-main'
+include ':module-home'
+include ':module-user'
+include ':module-work'
+include ':module-msg'
+rootProject.name = "XiZangComponent"
