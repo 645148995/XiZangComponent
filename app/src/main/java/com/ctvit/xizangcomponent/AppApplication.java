@@ -26,7 +26,7 @@ public class AppApplication extends BaseApplication {
 
         
 
-        1
+        3
 
         //....
         //初始化组件(靠后)
