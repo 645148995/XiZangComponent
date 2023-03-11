@@ -22,6 +22,12 @@ public class AppApplication extends BaseApplication {
         ModuleLifecycleConfig.getInstance().initModuleAhead(this);
 
 
+
+
+        
+
+        
+
         //....
         //初始化组件(靠后)
         ModuleLifecycleConfig.getInstance().initModuleLow(this);
