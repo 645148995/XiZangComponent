@@ -46,7 +46,7 @@ public class BaseModuleInit implements IModuleInit {
         //多语言设置初始化
         LanguagesManager.init(application);
         //ctvit组件
-        CtvitConfig.getInstance().init(application);
+
 
 
 
