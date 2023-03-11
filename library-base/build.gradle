@@ -48,9 +48,6 @@ dependencies {
     //阿里路由框架
     api config.dependencies["arouter-api"]
 
-
-    //多语言切换
-    api 'com.hjq:language:3.0'
     //fastjson
     api group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
     //smart:refresh-layout 下拉刷新库https://github.com/scwang90/SmartRefreshLayout
@@ -61,18 +58,4 @@ dependencies {
     api 'com.jeremyliao:live-event-bus-x:1.7.2'
 
 
-
-    //ctvit组件  暂时写在这里
-    api files('libs/CCTV_Analysis.jar')
-    api "com.ctvit.android:network:${config.dependencies.ctvit_network}"
-    api "com.ctvit.android:utils:${config.dependencies.ctvit_utils}"
-//    implementation "com.ctvit.android:websocket:${config.dependencies.ctvit_websocket}"
-    api "com.ctvit.android:encryptplay:${config.dependencies.ctvit_encryptplay}"
-    //防盗链
-    api "com.ctvit.android:qq:${config.dependencies.ctvit_qq}"
-    api "com.ctvit.android:wechat:${config.dependencies.ctvit_wechat}"
-    api "com.ctvit.android:sinaweibo:${config.dependencies.ctvit_sinaweibo}"
-    api "com.ctvit.android:usercenter:${config.dependencies.ctvit_usercenter}"
-    api "com.ctvit.android:utils:${config.dependencies.ctvit_utils}"
-//    implementation "com.sina.weibo.sdk:core:${config.dependencies.sina_weibo}:openDefaultRelease@aar"
 }
