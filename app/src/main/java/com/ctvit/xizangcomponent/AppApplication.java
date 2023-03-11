@@ -20,10 +20,8 @@ public class AppApplication extends BaseApplication {
         //初始化组件(靠前)
 
         ModuleLifecycleConfig.getInstance().initModuleAhead(this);
-        
 
-        
-//1234564654654
+
         //....
         //初始化组件(靠后)
         ModuleLifecycleConfig.getInstance().initModuleLow(this);
