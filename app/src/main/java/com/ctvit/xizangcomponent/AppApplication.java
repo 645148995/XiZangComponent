@@ -5,8 +5,7 @@ import com.ctvit.base.router.config.ModuleLifecycleConfig;
 
 import com.ctvit.base.base.BaseApplication;
 
-
-
+import java.lang.reflect.Field;
 
 
 /**
@@ -22,11 +21,7 @@ public class AppApplication extends BaseApplication {
         ModuleLifecycleConfig.getInstance().initModuleAhead(this);
 
 
-
-
-        
-
-        3
+        Field field;
 
         //....
         //初始化组件(靠后)
